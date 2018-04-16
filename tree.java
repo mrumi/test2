@@ -1,15 +1,29 @@
 import java.util.*;
+
 public class tree{
 	int[]arr;
 	static int size = 50;
-	public static void main(String [] args){	
-		tree tr = new tree();		
-		
+	public static void main(String[] args){	
+		tree tr = new tree();
+		int [] arr = {5,4,3,8,9,10,24,35,27,11};
+		tr.build_tree(arr);
 	}
 		
-	public void build_tree(){
-		
-		
+	public void build_tree(int[]arr){
+		Node root = null;
+		for(int i = 0; i < arr.length; i++){
+			int x = arr[i];
+			Node nd = new Node(arr[i]);
+			root = insert(root, nd);
+		}
+	}
+	
+	public Node insert(Node root, Node node){
+		if(root == null){
+			root = node;
+			return root;
+		}
+		return root;
 	}
 	
 	public Node search(int data, Node root){
@@ -26,7 +40,7 @@ public class tree{
 		if(root==null || root.data == data)
 			return root;
 		Node temp = root;
-		while(root != null && data != temp.key){
+		while(root != null && data != temp.data){
 			if(data < temp.data)
 				temp = temp.left;
 			else
@@ -42,7 +56,7 @@ public class tree{
 		while(temp.left != null){
 			temp = temp.left;
 		}
-		return temp
+		return temp;
 	}
 	
 	public Node maximum(Node root){
@@ -52,28 +66,17 @@ public class tree{
 		while(temp.right != null){
 			temp = temp.right;
 		}
-		return temp
+		return temp;
 	}
 	
-	public Node successor(N0de node){
-		if(node)
+	public Node successor(Node node){
+		//if(node)
+		return node;
 	}
 	public void print(){		
 		for(int i = 0; i < this.arr.length; i++){
 			System.out.print(this.arr[i]+" ");
 		}	
 		System.out.println();
-	}
-}
-
-class Node {
-    int data;
-    Node left;
-    Node right;
-	
-	public Node(int data){
-		this.data = data;
-		left = null;
-		right = null;
 	}
 }
